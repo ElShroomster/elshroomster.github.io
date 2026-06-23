@@ -1,0 +1,29 @@
+# Jekyll build output & caches
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Local serve / dev helper scripts
+serve.sh
+
+# Docker (not part of the website itself)
+Dockerfile
+docker-compose.yml
+docker-compose.yaml
+_config_docker.yml
+.dockerignore
+
+# Ruby / Bundler
+.bundle/
+vendor/
+
+# Node
+node_modules/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
