@@ -39,7 +39,7 @@
     {% endif %}
 
         {% if post.collection == 'teaching' %}
-          <p> {{ post.type }}, <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
+          <p>{{ post.role | default: post.type }}{% if post.institution or post.venue %}, {{ post.institution | default: post.venue }}{% endif %}{% if post.semesters %} ({% for semester in post.semesters %}{% if semester.link %}<a href="{{ semester.link }}">{{ semester.name }}</a>{% else %}{{ semester.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}){% endif %}</p>
         {% elsif post.collection == 'publications' %}
           <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif post.date %}

@@ -1,0 +1,50 @@
+---
+layout: archive
+title: "Relevant Coursework"
+permalink: /coursework/
+author_profile: true
+---
+
+{% include base_path %}
+
+<style>
+  .coursework-list {
+    margin: 0.15em 0 0.6em;
+    padding-left: 1.25em;
+  }
+  .coursework-list li {
+    margin-bottom: 0.1em;
+    line-height: 1.3;
+  }
+  .coursework-level {
+    margin-bottom: 0.15em;
+  }
+  .coursework-institution {
+    margin: 0.5em 0 0.15em;
+  }
+  .coursework-term {
+    color: var(--global-text-color-light);
+    font-size: 0.9em;
+  }
+</style>
+
+I do private tutoring! Please reach out through email and we can chat :)
+
+{% assign levels = "graduate,undergraduate" | split: "," %}
+{% assign headings = "Graduate,Undergraduate" | split: "," %}
+
+{% for level in levels %}
+  {% assign groups = site.data.coursework[level] %}
+  {% if groups and groups != empty %}
+    <h2 class="coursework-level">{{ headings[forloop.index0] }}</h2>
+    <hr />
+    {% for group in groups %}
+      {% if group.institution %}<h3 class="coursework-institution">{{ group.institution }}</h3>{% endif %}
+      <ul class="coursework-list">
+        {% for course in group.courses %}
+          <li><strong>{{ course.number }}</strong> &ndash; {{ course.name }}{% if course.term %} <span class="coursework-term">({{ course.term }})</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  {% endif %}
+{% endfor %}

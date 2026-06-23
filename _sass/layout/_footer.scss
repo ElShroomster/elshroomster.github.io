@@ -3,6 +3,8 @@
    ========================================================================== */
 
 .page__footer {
+  display: none; // remove to add footer back
+
   @include clearfix;
   background-color: var(--global-footer-bg-color);
   color: var(--global-text-color-light);
@@ -67,7 +69,7 @@
 
 .page__footer-copyright {
   font-family: $global-font-family;
-  font-size: $type-size-7;
+  font-size: $type-size-8;
 }
 
 .page__footer-follow {
@@ -82,7 +84,7 @@
     padding-top: 5px;
     padding-bottom: 5px;
     font-family: $sans-serif-narrow;
-    font-size: $type-size-6;
+    font-size: $type-size-7;
     text-transform: uppercase;
   }
 

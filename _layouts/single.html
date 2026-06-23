@@ -35,7 +35,7 @@ layout: default
         {% endif %}
         
         {% if page.collection == 'teaching' %}
-          <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+          <p>{{ page.role | default: page.type }}{% if page.institution or page.venue %}, {{ page.institution | default: page.venue }}{% endif %}{% if page.semesters %} ({% for semester in page.semesters %}{% if semester.link %}<a href="{{ semester.link }}">{{ semester.name }}</a>{% else %}{{ semester.name }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}){% endif %}</p>
         {% elsif page.venue and page.date %}
           <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.date %}
